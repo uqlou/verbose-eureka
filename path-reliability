@@ -1,0 +1,28 @@
+def calculate_reliability(r1, r2, r3, r4, r5):
+    # Reliability of Path 1 (Change path if necessary)
+    r_path1 = r1 * r2
+    
+    # Reliability of Path 2 (Change path if necessary)
+    r_path2 = r3 * r4 * r5
+    
+    # Total Reliability (Parallel)
+    r_total = 1 - (1 - r_path1) * (1 - r_path2)
+    
+    return round(r_total, 3)
+
+def main():
+    # Given reliabilities of components
+    r1 = 0.95  # Reliability of component 1
+    r2 = 0.95  # Reliability of component 2
+    r3 = 0.5   # Reliability of component 3
+    r4 = 0.79  # Reliability of component 4
+    r5 = 0.6   # Reliability of component 5
+
+    # Calculate the total reliability of the system
+    total_reliability = calculate_reliability(r1, r2, r3, r4, r5)
+    
+    # Output the result
+    print(f"Reliability of the entire system: {total_reliability}")
+
+if __name__ == "__main__":
+    main()

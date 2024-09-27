@@ -1,0 +1,25 @@
+import numpy as np
+
+# List of data points
+data = [34, 3, 14, 6, 10, 37, 7, 34, 13, 22, 32, 8, 30, 1, 51, 31]
+
+# Sort the data
+data_sorted = sorted(data)
+
+# Calculate the five-number summary
+minimum = np.min(data_sorted)
+q1 = np.percentile(data_sorted, 25)
+median = np.median(data_sorted)
+q3 = np.percentile(data_sorted, 75)
+maximum = np.max(data_sorted)
+
+# Calculate the Interquartile Range (IQR)
+iqr = q3 - q1
+
+# Print results
+print(f"Minimum: {minimum}")
+print(f"Q1: {q1}")
+print(f"Median: {median}")
+print(f"Q3: {q3}")
+print(f"Maximum: {maximum}")
+print(f"IQR: {iqr}")

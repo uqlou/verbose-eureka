@@ -1,0 +1,31 @@
+def event_probability(p_event1, p_event2):
+    # Probability of both events happening
+    p_both = p_event1 * p_event2
+    
+    # Probability of at least one event happening
+    p_at_least_one = 1 - (1 - p_event1) * (1 - p_event2)
+    
+    # Probability of event 1 happening but not event 2
+    p_event1_not_event2 = p_event1 * (1 - p_event2)
+    
+    # Probability of event 2 happening but not event 1
+    p_event2_not_event1 = p_event2 * (1 - p_event1)
+    
+    return round(p_both, 4), round(p_at_least_one, 4), round(p_event1_not_event2, 4), round(p_event2_not_event1, 4)
+
+def main():
+    # Example probabilities for two independent events
+    p_event1 = 0.61  # Probability of event 1 occurring
+    p_event2 = 0.27  # Probability of event 2 occurring
+
+    # Get the results
+    p_both, p_at_least_one, p_event1_not_event2, p_event2_not_event1 = event_probability(p_event1, p_event2)
+
+    # Output the results
+    print(f"Probability of both events occurring: {p_both}")
+    print(f"Probability of at least one event occurring: {p_at_least_one}")
+    print(f"Probability of event 1 but not event 2: {p_event1_not_event2}")
+    print(f"Probability of event 2 but not event 1: {p_event2_not_event1}")
+
+if __name__ == "__main__":
+    main()

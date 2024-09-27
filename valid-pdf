@@ -1,0 +1,18 @@
+def calculate_k():
+    # Define the upper limit
+    upper_limit = 2.84
+    
+    # Calculate the value of k
+    k = 3 / (upper_limit ** 3)
+    
+    return round(k, 6)
+
+def main():
+    # Calculate k
+    k_value = calculate_k()
+    
+    # Output the result
+    print(f"The value of k is: {k_value}")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,37 @@
+def course_probabilities(p_a1, p_a2, p_a1_or_a2):
+    # Calculate the probability of both events occuring
+    p_a1_and_a2 = p_a1 + p_a2 - p_a1_or_a2
+
+    # Probability that neither event occurs
+    p_neither = 1 - p_a1_or_a2
+
+    # Probability of one event occuring
+    p_exactly_one = p_a1 + p_a2 - 2 * p_a1_and_a2
+
+    # Probability of both events not occuring (one event or neither)
+    p_not_both = 1 - p_a1_and_a2
+
+    return {
+        "P(event1 and event2)": p_a1_and_a2,
+        "P(neither event1 nor event2)": p_neither,
+        "P(exactly one event)": p_exactly_one,
+        "P(one event or no event)": p_not_both
+    }
+
+def main():
+    # Example inputs
+    p_a1 = 0.7  # Probability of first event
+    p_a2 = 0.8  # Probability of second event
+    p_a1_or_a2 = 0.9  # Probability of at least one of the events
+
+    # Get the calculated probabilities
+    results = course_probabilities(p_a1, p_a2, p_a1_or_a2)
+
+    # Print results
+    print(f"Probability of both events occuring simultaneously: {results['P(event1 and event2)']:.2f}")
+    print(f"Probability of neither event occuring: {results['P(neither event1 nor event2)']:.2f}")
+    print(f"Probability of exactly one event occuring: {results['P(exactly one event)']:.2f}")
+    print(f"Probability of both events not occuring simultaneously: {results['P(one event or no event)']:.2f}")
+
+if __name__ == "__main__":
+    main()

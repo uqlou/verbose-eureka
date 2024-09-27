@@ -1,0 +1,31 @@
+def bayes_theorem(p_event2_given_event1, p_event2_given_not_event1, p_event1):
+    # Calculate the probability of Event 2 occurring (total probability)
+    p_not_event1 = 1 - p_event1
+    p_event2 = (p_event2_given_event1 * p_event1) + (p_event2_given_not_event1 * p_not_event1)
+    
+    # Use Bayes' Theorem to calculate P(Event1 | Event2)
+    p_event1_given_event2 = (p_event2_given_event1 * p_event1) / p_event2
+    
+    # Use Bayes' Theorem to calculate P(Event1 | Not Event2)
+    p_event1_given_not_event2 = (p_event1 * (1 - p_event2_given_event1)) / (1 - p_event2)
+    
+    return round(p_event1_given_event2, 3), round(p_event2, 3), round(p_event1_given_not_event2, 3)
+
+def main():
+    # Example probabilities
+    p_event2_given_event1 = 0.84  # Probability of Event 2 given Event 1
+    p_event2_given_not_event1 = 0.11  # Probability of Event 2 given not Event 1
+    p_event1 = 0.45  # Probability of Event 1 occurring
+
+    # Calculate the probabilities
+    p_event1_given_event2, p_event2, p_event1_given_not_event2 = bayes_theorem(
+        p_event2_given_event1, p_event2_given_not_event1, p_event1
+    )
+    
+    # Output the results
+    print(f"Probability that Event 1 occurred given Event 2: {p_event1_given_event2}")
+    print(f"Overall probability of Event 2 occurring: {p_event2}")
+    print(f"Probability that Event 1 occurred given Event 2 did not: {p_event1_given_not_event2}")
+
+if __name__ == "__main__":
+    main()
